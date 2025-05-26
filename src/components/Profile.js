@@ -1,4 +1,3 @@
-import Navbar from "./Navbar";
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -62,7 +61,6 @@ export default function Profile() {
       className="profileClass"
       style={{ minHeight: "100vh", backgroundColor: "#0B2E33" }}
     >
-      <Navbar></Navbar>
       <div className="profileClass">
         <div className="flex text-center flex-col mt-11 md:text-2xl text-white">
           <div className="mb-5">

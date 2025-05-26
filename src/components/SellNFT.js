@@ -1,4 +1,3 @@
-import Navbar from "./Navbar";
 import { useState } from "react";
 import { uploadFileToIPFS, uploadJSONToIPFS } from "../pinata";
 import Marketplace from "../Marketplace.json";
@@ -140,7 +139,6 @@ export default function SellNFT() {
   console.log("Working", process.env);
   return (
     <div className="bg-[#0B2E33]">
-      <Navbar></Navbar>
       <div className="flex flex-col place-items-center mt-10" id="nftForm">
         <form className="bg-[#93B1B5] shadow-md rounded px-8 pt-4 pb-8 mb-4">
           <h3 className="text-center font-bold text-black mb-8">

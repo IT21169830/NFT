@@ -1,4 +1,3 @@
-import Navbar from "./Navbar";
 import { useParams } from "react-router-dom";
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
@@ -198,7 +197,6 @@ export default function NFTPage(props) {
 
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#0B2E33" }}>
-      <Navbar />
       <div className="flex ml-20 mt-20">
         {dataFetched && data ? (
           data.image ? (
@@ -257,7 +255,7 @@ export default function NFTPage(props) {
                   ) : data.currentlyListed ? (
                     <button
                       className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded text-sm"
-                      onClick={() => buyNFT(tokenId, data.price)}
+                      onClick={() => buyNFT(tokenId)}
                     >
                       Buy for {data.price} ETH
                     </button>
