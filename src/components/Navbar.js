@@ -14,6 +14,16 @@ function Navbar() {
   const [connected, toggleConnect] = useState(false);
   const location = useLocation();
   const [currAddress, updateAddress] = useState("0x");
+  
+  // Add state for userType
+  const [isCustomer, setIsCustomer] = useState(false);
+
+  useEffect(() => {
+    // Get userType from URL parameters
+    const params = new URLSearchParams(location.search);
+    const userType = params.get('userType');
+    setIsCustomer(userType === 'Customer');
+  }, [location]);
 
   async function getAddress() {
     const ethers = require("ethers");
@@ -88,14 +98,16 @@ function Navbar() {
                   <Link to="/">Marketplace</Link>
                 </li>
               )}
-              {location.pathname === "/sellNFT" ? (
-                <li className="border-b-2 hover:pb-0 p-2">
-                  <Link to="/sellNFT">List My NFT</Link>
-                </li>
-              ) : (
-                <li className="hover:border-b-2 hover:pb-0 p-2">
-                  <Link to="/sellNFT">List My NFT</Link>
-                </li>
+              {!isCustomer && (
+                location.pathname === "/sellNFT" ? (
+                  <li className="border-b-2 hover:pb-0 p-2">
+                    <Link to="/sellNFT">List My NFT</Link>
+                  </li>
+                ) : (
+                  <li className="hover:border-b-2 hover:pb-0 p-2">
+                    <Link to="/sellNFT">List My NFT</Link>
+                  </li>
+                )
               )}
               {location.pathname === "/profile" ? (
                 <li className="border-b-2 hover:pb-0 p-2">
