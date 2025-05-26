@@ -2,7 +2,6 @@ import Navbar from "./Navbar";
 import { useState } from "react";
 import { uploadFileToIPFS, uploadJSONToIPFS } from "../pinata";
 import Marketplace from "../Marketplace.json";
-import { useLocation } from "react-router";
 import Swal from "sweetalert2";
 
 export default function SellNFT() {
@@ -14,7 +13,6 @@ export default function SellNFT() {
   const [fileURL, setFileURL] = useState(null);
   const ethers = require("ethers");
   const [message, updateMessage] = useState("");
-  const location = useLocation();
 
   async function disableButton() {
     const listButton = document.getElementById("list-button");

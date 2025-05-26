@@ -1,14 +1,5 @@
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useRouteMatch,
-  useParams,
-} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
-import Swal from "sweetalert2";
 
 function Navbar() {
   const [connected, toggleConnect] = useState(false);
@@ -45,7 +36,6 @@ function Navbar() {
   async function connectWebsite() {
     const chainId = await window.ethereum.request({ method: "eth_chainId" });
     if (chainId !== "0xaa36a7") {
-      //alert('Incorrect network! Switch your metamask network to Rinkeby');
       await window.ethereum.request({
         method: "wallet_switchEthereumChain",
         params: [{ chainId: "0xaa36a7" }],
@@ -62,7 +52,7 @@ function Navbar() {
   }
 
   useEffect(() => {
-    if (window.ethereum == undefined) return;
+    if (window.ethereum === undefined) return;
     let val = window.ethereum.isConnected();
     if (val) {
       console.log("here");
@@ -74,7 +64,7 @@ function Navbar() {
     window.ethereum.on("accountsChanged", function (accounts) {
       window.location.replace(location.pathname);
     });
-  });
+  }, [location.pathname]);
 
   return (
     <div className="">

@@ -2,8 +2,7 @@ import {
     Link
   } from "react-router-dom";
   import { GetIpfsUrlFromPinata } from "../utils";
-  import Swal from "sweetalert2";
-  
+
 function NFTTile (data) {
     const newTo = {
         pathname:"/nftPage/"+data.data.tokenId

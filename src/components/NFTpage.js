@@ -4,7 +4,6 @@ import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { GetIpfsUrlFromPinata } from "../utils";
-import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 export default function NFTPage(props) {

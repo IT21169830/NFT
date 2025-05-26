@@ -1,10 +1,8 @@
 import Navbar from "./Navbar";
-import { useLocation, useParams } from "react-router-dom";
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import NFTTile from "./NFTTile";
-import Swal from "sweetalert2";
 
 export default function Profile() {
   const [data, updateData] = useState([]);
@@ -17,7 +15,7 @@ export default function Profile() {
       getNFTData();
     }
     console.log("data fetched", data);
-  }, [dataFetched]);
+  }, [dataFetched, data]);
 
   async function getNFTData() {
     const ethers = require("ethers");
